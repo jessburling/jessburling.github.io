@@ -1,60 +1,157 @@
-
-
-/* Scrolling CSS */
+@import url('https://fonts.googleapis.com/css?family=Barlow');
+* {
+    box-sizing: inherit;
+}
 
 html {
-    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+/* Navigation */
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    font-family: 'Barlow', sans-serif;
+}
+
+#top-logo {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+/* Menu Overlay */
+
+#white-logo {
+    width: 155px;
+    height: 37px;
+    margin-top: 25px;
+    margin-left: 20px;
+}
+
+#burger-menu {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 30px;
+    margin-right: 50px;
+    background-color: #EFEDED;
+    align-items: center;
+    transition: all .3s ease;
+    transform: translate(0px,0px);
+}
+
+#burger-menu:hover {
+    transition: all .3s ease;
+    transform: translate(0px,5px);
+}
+
+#burger-icon {
+    width: 50%;
+    margin: auto;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(43,43,43, 1);
+  }
+  
+  .overlay-content {
+    position: relative;
+    top: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 50%;
+    width: 100%;
+    text-align: center;
+    animation-name: slideUp;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
   }
 
-/* a:link {
-    color: black;
+  
+  .overlay a {
+    padding: 8px;
     text-decoration: none;
+    font-size: 28px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .overlay a:hover, .overlay a:focus {
+    color: #5CB4A0;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0px;
+    right: 45px;
+    font-size: 60px;
+  }
+
+  .closebtn {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    transition: all .3s ease;
+    transform: translate(0px,0px);
+  }
+
+  .closebtn:hover {
+    transition: all .3s ease;
+    transform: translate(0px,5px); 
+  }
+
+/* End of Navigation */
+
+
+
+
+
+
+
+
+  @keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+  }
 }
-
-a:visited {
-    color: black;
-    text-decoration: none;
-} */
-
-/* Navigation CSS */
-
-div.topnav {
-    text-align: center;
-    padding: 50px;
-    
-}
-
-.topnav a {
-    font-family: 'Roboto', sans-serif;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px; 
-}
-
-.topnav a:visited {
-    color: black;
-    text-decoration: none;
-}
-
-ul.nav {
-    list-style-type: none;
-}
-
-
-
-h1.hero {
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-}
-
-h2 {
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-}
-
-img {
-    width: 100%;
-    height: auto;
+  
+  @media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+    }
   }
